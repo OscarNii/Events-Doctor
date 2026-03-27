@@ -41,19 +41,19 @@ export default function App() {
   return (
     <div className="min-h-screen font-sans selection:bg-blue-200 selection:text-blue-900">
       {/* Header */}
-      <div className="w-full bg-blue-700 shadow-md">
+      <div className="w-full bg-slate-900 shadow-md">
         <header className="w-full max-w-7xl mx-auto px-6 py-6 flex justify-between items-center">
-          <div className="text-2xl font-black tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-white to-black">
+          <div className="text-2xl font-black tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-400">
             RENEWABLE<span className="font-normal">ELEGANCE</span>
           </div>
-          <nav className="hidden md:flex gap-8 font-medium text-sm text-blue-100">
+          <nav className="hidden md:flex gap-8 font-medium text-sm text-slate-300">
             <a href="#home" className="text-white border-b-2 border-white pb-1">Home</a>
             <a href="#programm" className="hover:text-white transition-colors">Programm</a>
             <a href="#galerie" className="hover:text-white transition-colors">Galerie</a>
             <a href="#tickets" className="hover:text-white transition-colors">Tickets</a>
             <a href="#partner" className="hover:text-white transition-colors">Partner</a>
           </nav>
-          <a href="#tickets" className="bg-white hover:bg-blue-50 text-blue-700 px-6 py-2.5 rounded-full font-semibold transition-all duration-300 shadow-lg inline-block hover:-translate-y-1">
+          <a href="#tickets" className="bg-white hover:bg-slate-200 text-slate-900 px-6 py-2.5 rounded-full font-semibold transition-all duration-300 shadow-lg inline-block hover:-translate-y-1">
             Tickets Kaufen
           </a>
         </header>
@@ -73,36 +73,36 @@ export default function App() {
               />
             ))}
             {/* Frosted glass overlay to maintain neumorphic readability */}
-            <div className="absolute inset-0 bg-[#f0f3f8]/60 backdrop-blur-sm"></div>
+            <div className="absolute inset-0 bg-[#1e293b]/70 backdrop-blur-sm"></div>
             {/* Gradient fade at the bottom to blend into the next section */}
-            <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#f0f3f8] to-transparent"></div>
+            <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#1e293b] to-transparent"></div>
           </div>
 
           <section id="home" className="relative z-10 w-full max-w-7xl mx-auto px-6 py-12 lg:py-20 flex flex-col lg:flex-row items-center gap-16">
             <div className="flex-1 space-y-8">
-            <div className="inline-block bg-blue-100 text-blue-800 text-xs font-bold px-4 py-1.5 rounded-full tracking-wider uppercase">
+            <div className="inline-block bg-blue-900/50 text-blue-200 text-xs font-bold px-4 py-1.5 rounded-full tracking-wider uppercase">
               2. - 3. MAI 2026 • SCHWARZKANE, HERTEN
             </div>
-            <h1 className="text-6xl lg:text-8xl font-black leading-none tracking-tight text-slate-900">
+            <h1 className="text-6xl lg:text-8xl font-black leading-none tracking-tight text-white">
               Renewable<br />
-              <span className="text-blue-700 italic">Elegance</span>
+              <span className="text-blue-400 italic">Elegance</span>
             </h1>
-            <h2 className="text-2xl font-bold tracking-widest text-slate-700 uppercase">Arts in Motion</h2>
-            <p className="text-lg text-slate-600 max-w-xl leading-relaxed">
+            <h2 className="text-2xl font-bold tracking-widest text-slate-300 uppercase">Arts in Motion</h2>
+            <p className="text-lg text-slate-400 max-w-xl leading-relaxed">
               Ein Upcycling-Festival für Kunst und Mode das Textilabfälle in tragbare Kunst verwandelt. Erleben Sie die Schnittstelle von High-Fashion und nachhaltiger Innovation.
             </p>
             <div className="flex flex-wrap gap-4 pt-4">
-              <a href="#tickets" className="bg-blue-700 hover:bg-blue-800 text-white px-8 py-4 rounded-full font-bold transition-all duration-300 shadow-xl shadow-blue-700/20 inline-block hover:-translate-y-1 hover:shadow-blue-700/40">
+              <a href="#tickets" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full font-bold transition-all duration-300 shadow-xl shadow-blue-900/20 inline-block hover:-translate-y-1 hover:shadow-blue-900/40">
                 Tickets Sichern
               </a>
-              <a href="#programm" className="neu-button px-8 py-4 rounded-full font-bold text-blue-700 inline-block">
+              <a href="#programm" className="neu-button px-8 py-4 rounded-full font-bold text-blue-400 inline-block">
                 Zum Programm
               </a>
             </div>
           </div>
           <div className="flex-1 flex justify-center lg:justify-end w-full">
             {/* Poster Representation */}
-            <div className="w-full max-w-md aspect-[3/4] rounded-[2rem] overflow-hidden shadow-2xl relative bg-white">
+            <div className="w-full max-w-md aspect-[3/4] rounded-[2rem] overflow-hidden shadow-2xl relative bg-slate-800">
               {heroImages.map((src, index) => (
                 <motion.img 
                   key={src}
@@ -113,20 +113,20 @@ export default function App() {
                   referrerPolicy="no-referrer"
                 />
               ))}
-              <div className="absolute inset-0 bg-gradient-to-tr from-white/90 via-white/40 to-transparent p-8 flex flex-col z-10">
-                <div className="text-blue-900 font-black text-3xl leading-none mb-2">
+              <div className="absolute inset-0 bg-gradient-to-tr from-slate-900/90 via-slate-900/40 to-transparent p-8 flex flex-col z-10">
+                <div className="text-blue-300 font-black text-3xl leading-none mb-2">
                   RENEWABLE<br/><span className="italic">Elegance</span>
                 </div>
-                <div className="text-xs font-bold tracking-widest text-slate-800 mb-8">ARTS IN MOTION</div>
+                <div className="text-xs font-bold tracking-widest text-slate-200 mb-8">ARTS IN MOTION</div>
                 
                 <div className="mt-auto space-y-4">
-                  <div className="bg-white/90 backdrop-blur-sm p-4 rounded-xl w-fit shadow-lg">
-                    <div className="font-black text-blue-900 mb-1">TICKETS</div>
-                    <div className="text-sm font-bold text-slate-700">VVK: 20.00 €</div>
-                    <div className="text-sm font-bold text-slate-700">AK: 25.00 €</div>
+                  <div className="bg-slate-800/90 backdrop-blur-sm p-4 rounded-xl w-fit shadow-lg">
+                    <div className="font-black text-blue-300 mb-1">TICKETS</div>
+                    <div className="text-sm font-bold text-slate-300">VVK: 20.00 €</div>
+                    <div className="text-sm font-bold text-slate-300">AK: 25.00 €</div>
                   </div>
-                  <div className="flex items-center gap-2 text-xs font-bold text-slate-800 bg-white/80 w-fit px-3 py-1.5 rounded-full">
-                    <span className="w-2 h-2 rounded-full bg-blue-600"></span>
+                  <div className="flex items-center gap-2 text-xs font-bold text-slate-200 bg-slate-800/80 w-fit px-3 py-1.5 rounded-full">
+                    <span className="w-2 h-2 rounded-full bg-blue-500"></span>
                     SCHWARZKANE
                   </div>
                 </div>
@@ -137,7 +137,7 @@ export default function App() {
                     <button
                       key={index}
                       onClick={() => setCurrentImage(index)}
-                      className={`h-2 rounded-full transition-all duration-300 ${index === currentImage ? 'w-6 bg-blue-700' : 'w-2 bg-blue-700/30 hover:bg-blue-700/50'}`}
+                      className={`h-2 rounded-full transition-all duration-300 ${index === currentImage ? 'w-6 bg-blue-400' : 'w-2 bg-blue-400/30 hover:bg-blue-400/50'}`}
                       aria-label={`Go to slide ${index + 1}`}
                     />
                   ))}
@@ -151,7 +151,7 @@ export default function App() {
         {/* Highlights Section */}
         <section className="w-full max-w-7xl mx-auto px-6 py-24">
           <h2 className="text-4xl font-black mb-4 tracking-tight">UNSERE HIGHLIGHTS</h2>
-          <p className="text-slate-600 max-w-2xl mb-12 text-lg">
+          <p className="text-slate-400 max-w-2xl mb-12 text-lg">
             Vom Laufsteg bis zur Galerie: Erleben Sie, wie weggeworfene Materialien zu höchster Eleganz werden.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -183,8 +183,8 @@ export default function App() {
                 </div>
                 <div className="px-2 flex-grow flex flex-col">
                   <h3 className="text-xl font-bold mb-4">{item.title}</h3>
-                  <p className="text-slate-600 mb-8 flex-grow">{item.desc}</p>
-                  <ArrowRight className="text-blue-700" size={24} />
+                  <p className="text-slate-400 mb-8 flex-grow">{item.desc}</p>
+                  <ArrowRight className="text-blue-400" size={24} />
                 </div>
               </div>
             ))}
@@ -195,7 +195,7 @@ export default function App() {
         <section id="programm" className="w-full max-w-7xl mx-auto px-6 py-12">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-black mb-4 tracking-tight">PROGRAMMÜBERSICHT</h2>
-            <p className="text-blue-700 font-bold text-lg">2. - 3. Mai 2026 • Schwarzkane, Herten</p>
+            <p className="text-blue-400 font-bold text-lg">2. - 3. Mai 2026 • Schwarzkane, Herten</p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -204,12 +204,12 @@ export default function App() {
               <div className="flex justify-between items-start mb-8">
                 <div>
                   <h3 className="text-4xl font-black mb-1">2. MAI</h3>
-                  <p className="text-blue-700 font-bold uppercase tracking-widest text-sm">Samstag, 2026</p>
+                  <p className="text-blue-400 font-bold uppercase tracking-widest text-sm">Samstag, 2026</p>
                 </div>
                 <ArrowDownRight className="text-blue-300" size={40} strokeWidth={1.5} />
               </div>
 
-              <div className="bg-blue-100/50 text-slate-800 font-bold p-5 rounded-2xl mb-8 border border-blue-200/50">
+              <div className="bg-blue-900/30 text-slate-200 font-bold p-5 rounded-2xl mb-8 border border-blue-800/50">
                 OPENING NIGHT – FASHION, ART & PERFORMANCE
               </div>
 
@@ -222,10 +222,10 @@ export default function App() {
                   { time: '22:00', title: 'AFTERPARTY & DJ-SET', desc: 'Musik, Tanz & Live-Painting bis 02:00 Uhr nachts' },
                 ].map((event, i) => (
                   <div key={i} className="neu-flat rounded-2xl p-5 flex items-center gap-6">
-                    <div className="text-blue-700 font-black text-xl w-16 shrink-0">{event.time}</div>
+                    <div className="text-blue-400 font-black text-xl w-16 shrink-0">{event.time}</div>
                     <div>
-                      <h4 className="font-bold text-slate-800">{event.title}</h4>
-                      {event.desc && <p className="text-slate-500 text-sm mt-1">{event.desc}</p>}
+                      <h4 className="font-bold text-slate-200">{event.title}</h4>
+                      {event.desc && <p className="text-slate-400 text-sm mt-1">{event.desc}</p>}
                     </div>
                   </div>
                 ))}
@@ -237,12 +237,12 @@ export default function App() {
               <div className="flex justify-between items-start mb-8">
                 <div>
                   <h3 className="text-4xl font-black mb-1">3. MAI</h3>
-                  <p className="text-blue-700 font-bold uppercase tracking-widest text-sm">Sonntag, 2026</p>
+                  <p className="text-blue-400 font-bold uppercase tracking-widest text-sm">Sonntag, 2026</p>
                 </div>
                 <ArrowDownRight className="text-blue-300" size={40} strokeWidth={1.5} />
               </div>
 
-              <div className="bg-blue-100/50 text-slate-800 font-bold p-5 rounded-2xl mb-8 border border-blue-200/50">
+              <div className="bg-blue-900/30 text-slate-200 font-bold p-5 rounded-2xl mb-8 border border-blue-800/50">
                 EXHIBITION, ART & NETWORKING
               </div>
 
@@ -255,10 +255,10 @@ export default function App() {
                   { time: '18:30', title: 'ABSCHLUSSMOMENT', desc: 'Gemeinsamer Ausklang' },
                 ].map((event, i) => (
                   <div key={i} className="neu-flat rounded-2xl p-5 flex items-center gap-6">
-                    <div className="text-blue-700 font-black text-xl w-16 shrink-0">{event.time}</div>
+                    <div className="text-blue-400 font-black text-xl w-16 shrink-0">{event.time}</div>
                     <div>
-                      <h4 className="font-bold text-slate-800">{event.title}</h4>
-                      {event.desc && <p className="text-slate-500 text-sm mt-1">{event.desc}</p>}
+                      <h4 className="font-bold text-slate-200">{event.title}</h4>
+                      {event.desc && <p className="text-slate-400 text-sm mt-1">{event.desc}</p>}
                     </div>
                   </div>
                 ))}
@@ -271,7 +271,7 @@ export default function App() {
         <section id="galerie" className="w-full max-w-7xl mx-auto px-6 py-24">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-black mb-4 tracking-tight">IMPRESSIONEN</h2>
-            <p className="text-slate-600 max-w-2xl mx-auto text-lg">
+            <p className="text-slate-400 max-w-2xl mx-auto text-lg">
               Ein Blick zurück auf vergangene Momente voller Kreativität, Mode und nachhaltiger Kunst.
             </p>
           </div>
@@ -294,8 +294,8 @@ export default function App() {
                   />
                   {media.type === 'video' && (
                     <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/10 transition-colors">
-                      <div className="w-16 h-16 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg">
-                        <div className="w-0 h-0 border-t-8 border-t-transparent border-l-[14px] border-l-blue-700 border-b-8 border-b-transparent ml-1"></div>
+                      <div className="w-16 h-16 bg-slate-800/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg">
+                        <div className="w-0 h-0 border-t-8 border-t-transparent border-l-[14px] border-l-blue-400 border-b-8 border-b-transparent ml-1"></div>
                       </div>
                     </div>
                   )}
@@ -304,7 +304,7 @@ export default function App() {
             ))}
           </div>
           <div className="mt-16 text-center">
-            <button className="neu-button px-10 py-4 rounded-full font-bold text-blue-700 inline-block">
+            <button className="neu-button px-10 py-4 rounded-full font-bold text-blue-400 inline-block">
               Mehr ansehen
             </button>
           </div>
@@ -314,7 +314,7 @@ export default function App() {
         <section id="partner" className="w-full max-w-7xl mx-auto px-6 py-24">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
             <div>
-              <h3 className="text-blue-700 font-bold tracking-widest text-sm mb-6 uppercase">Key Partners</h3>
+              <h3 className="text-blue-400 font-bold tracking-widest text-sm mb-6 uppercase">Key Partners</h3>
               <div className="flex flex-wrap gap-4">
                 {['KIDINGANGA', 'BOLLÉY', 'Mulungu'].map((p, i) => (
                   <div key={i} className="neu-pressed px-6 py-3 rounded-lg text-slate-400 font-bold text-sm tracking-wider">
@@ -324,7 +324,7 @@ export default function App() {
               </div>
             </div>
             <div>
-              <h3 className="text-blue-700 font-bold tracking-widest text-sm mb-6 uppercase">Sponsoren</h3>
+              <h3 className="text-blue-400 font-bold tracking-widest text-sm mb-6 uppercase">Sponsoren</h3>
               <div className="flex flex-wrap gap-4">
                 {['Weidner', 'Ghana Council', 'Ghana Forum', 'SOLI-BUS'].map((p, i) => (
                   <div key={i} className="neu-pressed px-6 py-3 rounded-lg text-slate-400 font-bold text-sm tracking-wider">
@@ -338,10 +338,10 @@ export default function App() {
 
         {/* Tickets Section */}
         <section id="tickets" className="w-full max-w-7xl mx-auto px-6 py-12">
-          <div className="bg-blue-700 rounded-[3rem] p-12 lg:p-20 flex flex-col lg:flex-row items-center justify-between gap-16 shadow-2xl shadow-blue-700/20 relative overflow-hidden">
+          <div className="bg-blue-900 rounded-[3rem] p-12 lg:p-20 flex flex-col lg:flex-row items-center justify-between gap-16 shadow-2xl shadow-blue-900/20 relative overflow-hidden">
             <div className="flex-1 text-white z-10">
               <h2 className="text-6xl lg:text-7xl font-black mb-6 leading-none tracking-tight">TICKET<br/>KAUFEN</h2>
-              <p className="text-blue-100 text-lg mb-12 max-w-md">
+              <p className="text-blue-200 text-lg mb-12 max-w-md">
                 Sichern Sie sich jetzt Ihren Zugang zum Upcycling-Event des Jahres. Limitierte Plätze verfügbar.
               </p>
 
@@ -356,22 +356,22 @@ export default function App() {
                 </div>
               </div>
 
-              <button className="bg-white text-blue-700 hover:bg-blue-50 px-10 py-4 rounded-full font-bold text-lg transition-all duration-300 shadow-xl hover:-translate-y-1 hover:shadow-2xl">
+              <button className="bg-white text-blue-700 hover:bg-slate-200 px-10 py-4 rounded-full font-bold text-lg transition-all duration-300 shadow-xl hover:-translate-y-1 hover:shadow-2xl">
                 Jetzt Tickets Sichern
               </button>
             </div>
 
             <div className="w-full lg:w-auto z-10">
-              <div className="bg-[#f0f3f8] rounded-[2.5rem] p-10 lg:p-12 flex flex-col items-center text-center shadow-2xl w-full max-w-sm mx-auto">
+              <div className="bg-[#1e293b] rounded-[2.5rem] p-10 lg:p-12 flex flex-col items-center text-center shadow-2xl w-full max-w-sm mx-auto">
                 <div className="w-32 h-32 neu-pressed rounded-2xl flex items-center justify-center mb-8">
-                  <QrCode size={48} className="text-blue-700" />
+                  <QrCode size={48} className="text-blue-400" />
                 </div>
-                <p className="font-bold text-slate-800 text-lg mb-8">Was geht ab? Hier erfährst du's!</p>
-                <div className="flex gap-6 text-blue-700">
-                  <div className="neu-button p-3 rounded-full cursor-pointer hover:text-blue-800"><Instagram size={24} /></div>
-                  <div className="neu-button p-3 rounded-full cursor-pointer hover:text-blue-800"><Facebook size={24} /></div>
-                  <div className="neu-button p-3 rounded-full cursor-pointer hover:text-blue-800"><Twitter size={24} /></div>
-                  <div className="neu-button p-3 rounded-full cursor-pointer hover:text-blue-800"><MessageCircle size={24} /></div>
+                <p className="font-bold text-slate-200 text-lg mb-8">Was geht ab? Hier erfährst du's!</p>
+                <div className="flex gap-6 text-blue-400">
+                  <div className="neu-button p-3 rounded-full cursor-pointer hover:text-blue-300"><Instagram size={24} /></div>
+                  <div className="neu-button p-3 rounded-full cursor-pointer hover:text-blue-300"><Facebook size={24} /></div>
+                  <div className="neu-button p-3 rounded-full cursor-pointer hover:text-blue-300"><Twitter size={24} /></div>
+                  <div className="neu-button p-3 rounded-full cursor-pointer hover:text-blue-300"><MessageCircle size={24} /></div>
                 </div>
               </div>
             </div>
@@ -380,19 +380,19 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <footer className="w-full max-w-7xl mx-auto px-6 py-16 mt-12 border-t border-slate-200/50">
+      <footer className="w-full max-w-7xl mx-auto px-6 py-16 mt-12 border-t border-slate-700/50">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
           <div>
             <div className="text-xl font-black tracking-tighter mb-4">
               RENEWABLE<span className="font-normal">ELEGANCE</span>
             </div>
-            <p className="text-slate-500 text-sm max-w-xs leading-relaxed">
+            <p className="text-slate-400 text-sm max-w-xs leading-relaxed">
               Ein Projekt zur Förderung von nachhaltiger Mode und kreativem Upcycling in Herten und darüber hinaus.
             </p>
           </div>
           <div>
-            <h4 className="text-blue-700 font-bold tracking-widest text-xs uppercase mb-4">Veranstaltungsort</h4>
-            <p className="text-slate-600 text-sm leading-relaxed">
+            <h4 className="text-blue-400 font-bold tracking-widest text-xs uppercase mb-4">Veranstaltungsort</h4>
+            <p className="text-slate-400 text-sm leading-relaxed">
               Schwarzkane<br/>
               Ehemalige Zeche Schlägel & Eisen<br/>
               Glückauf-Ring 35-37<br/>
@@ -400,18 +400,18 @@ export default function App() {
             </p>
           </div>
           <div>
-            <h4 className="text-blue-700 font-bold tracking-widest text-xs uppercase mb-4">Öffnungszeiten</h4>
-            <p className="text-slate-600 text-sm leading-relaxed">
+            <h4 className="text-blue-400 font-bold tracking-widest text-xs uppercase mb-4">Öffnungszeiten</h4>
+            <p className="text-slate-400 text-sm leading-relaxed">
               Mo. - Do. 07:30 - 15:30 Uhr<br/>
               Freitags: 07:30 - 12:30 Uhr
             </p>
           </div>
         </div>
-        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-slate-200/50 text-xs text-slate-500">
+        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-slate-700/50 text-xs text-slate-400">
           <div className="flex gap-6 mb-4 md:mb-0">
-            <a href="#" className="hover:text-blue-700 transition-colors">Datenschutz</a>
-            <a href="#" className="hover:text-blue-700 transition-colors">Impressum</a>
-            <a href="#" className="hover:text-blue-700 transition-colors">Presse</a>
+            <a href="#" className="hover:text-blue-400 transition-colors">Datenschutz</a>
+            <a href="#" className="hover:text-blue-400 transition-colors">Impressum</a>
+            <a href="#" className="hover:text-blue-400 transition-colors">Presse</a>
           </div>
           <div>
             © 2026 Renewable Elegance Festival. Arts in Motion.

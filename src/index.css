@@ -5,14 +5,14 @@ html {
 }
 
 @theme {
-  --color-bg-neu: #f0f3f8;
-  --color-shadow-light: #ffffff;
-  --color-shadow-dark: #d1d9e6;
+  --color-bg-neu: #1e293b;
+  --color-shadow-light: #29384d;
+  --color-shadow-dark: #131a25;
 }
 
 body {
   background-color: var(--color-bg-neu);
-  color: #1e293b;
+  color: #f8fafc;
 }
 
 .neu-flat {
