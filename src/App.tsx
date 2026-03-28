@@ -13,6 +13,7 @@ export default function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 1000], [0, 150]);
+  const bgY = useTransform(scrollY, [0, 1000], [0, 250]);
 
   const bgImages = [
     "https://images.unsplash.com/photo-1509319117193-57bab727e09d?q=80&w=2070&auto=format&fit=crop",
@@ -101,11 +102,13 @@ export default function App() {
           {/* Background Carousel */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
             {bgImages.map((src, index) => (
-              <img 
+              <motion.img 
                 key={src}
                 src={src}
+                style={{ y: bgY }}
                 alt="Background"
-                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${index === currentBg ? 'opacity-100' : 'opacity-0'}`}
+                loading={index === 0 ? "eager" : "lazy"}
+                className={`absolute -top-[15%] left-0 w-full h-[130%] object-cover transition-opacity duration-1000 ${index === currentBg ? 'opacity-100' : 'opacity-0'}`}
               />
             ))}
             {/* Frosted glass overlay to maintain neumorphic readability */}
@@ -144,6 +147,7 @@ export default function App() {
                   key={src}
                   src={src} 
                   style={{ y }}
+                  loading={index === 0 ? "eager" : "lazy"}
                   alt={`Fashion Poster ${index + 1}`} 
                   className={`absolute -top-[15%] left-0 w-full h-[130%] object-cover transition-opacity duration-1000 ${index === currentImage ? 'opacity-90' : 'opacity-0'}`} 
                   referrerPolicy="no-referrer"
@@ -213,6 +217,7 @@ export default function App() {
                   <img 
                     src={item.image} 
                     alt={item.title} 
+                    loading="lazy"
                     className="w-full h-full object-cover rounded-lg opacity-90 hover:opacity-100 transition-opacity" 
                     referrerPolicy="no-referrer"
                   />
@@ -324,7 +329,8 @@ export default function App() {
                 <div className="relative w-full aspect-square rounded-xl overflow-hidden">
                   <img 
                     src={media.src} 
-                    alt={`Gallery ${i + 1}`} 
+                    alt={`Gallery ${media.type} ${i + 1}`} 
+                    loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     referrerPolicy="no-referrer"
                   />
@@ -374,7 +380,19 @@ export default function App() {
 
         {/* Tickets Section */}
         <section id="tickets" className="w-full max-w-7xl mx-auto px-4 md:px-6 py-12 md:py-16">
-          <div className="bg-blue-900 rounded-[2rem] md:rounded-[3rem] p-8 md:p-12 lg:p-20 flex flex-col lg:flex-row items-center justify-between gap-12 md:gap-16 shadow-2xl shadow-blue-900/20 relative overflow-hidden">
+          <div className="rounded-[2rem] md:rounded-[3rem] p-8 md:p-12 lg:p-20 flex flex-col lg:flex-row items-center justify-between gap-12 md:gap-16 shadow-2xl shadow-blue-900/20 relative overflow-hidden">
+            {/* Background Image with Gradient Overlay */}
+            <div className="absolute inset-0 z-0 bg-blue-950">
+              <img 
+                src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1600&auto=format&fit=crop" 
+                alt="Tickets Background" 
+                className="w-full h-full object-cover opacity-60 blur-md scale-110"
+                loading="lazy"
+                referrerPolicy="no-referrer"
+              />
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-950 via-blue-900/40 to-blue-950/80"></div>
+            </div>
+
             <div className="flex-1 text-white z-10 text-center lg:text-left">
               <h2 className="text-5xl md:text-6xl lg:text-7xl font-black mb-4 md:mb-6 leading-none tracking-tight">TICKET<br className="hidden md:block"/>KAUFEN</h2>
               <p className="text-blue-200 text-base md:text-lg mb-8 md:mb-12 max-w-md mx-auto lg:mx-0">
