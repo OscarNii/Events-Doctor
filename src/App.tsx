@@ -241,7 +241,7 @@ export default function App() {
               { 
                 title: 'KUNSTAUSSTELLUNG', 
                 desc: 'Eine kuratierte Sammlung taktiler Skulpturen und digitaler Medieninstallationen.',
-                image: 'https://images.unsplash.com/photo-1536924940846-227afb31e2a5?q=80&w=800&auto=format&fit=crop'
+                image: 'https://images.unsplash.com/photo-1603122630570-7fd434d470d0?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
               },
               { 
                 title: 'LIVE-AUFTRITTE', 
