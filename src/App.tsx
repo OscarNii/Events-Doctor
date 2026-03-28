@@ -21,6 +21,7 @@ export default function App() {
   ];
 
   const heroImages = [
+    "https://images.unsplash.com/photo-1543728069-a3f97c5a2f32?q=80&w=2969&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "https://images.unsplash.com/photo-1543728069-a3f97c5a2f32?q=80&w=3269&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=2070&auto=format&fit=crop",
     "https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?q=80&w=2070&auto=format&fit=crop"
@@ -353,6 +354,16 @@ export default function App() {
               Ein Blick zurück auf vergangene Momente voller Kreativität, Mode und nachhaltiger Kunst.
             </p>
           </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              { type: 'image', src: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=800&auto=format&fit=crop' },
+              { type: 'image', src: 'https://images.unsplash.com/photo-1543728069-a3f97c5a2f32?q=80&w=2969&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+              { type: 'image', src: 'https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=800&auto=format&fit=crop' },
+              { type: 'image', src: 'https://images.unsplash.com/photo-1600091166971-7f9faad6c1e2?q=80&w=800&auto=format&fit=crop' },
+              { type: 'video', src: 'https://images.unsplash.com/photo-1508427953056-b00b8d78ebf5?q=80&w=800&auto=format&fit=crop' },
+              { type: 'image', src: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=800&auto=format&fit=crop' },
+            ].map((media, i) => (
+              <div key={i} className="neu-pressed rounded-[2rem] p-3 group cursor-pointer">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {visibleGalleryItems.map((media, i) => (
               <motion.div 
