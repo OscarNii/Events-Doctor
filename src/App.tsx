@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArrowDownRight, ArrowRight, Facebook, Instagram, MessageCircle, QrCode, Twitter, X, Menu } from 'lucide-react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'motion/react';
 
@@ -40,6 +40,43 @@ export default function App() {
     return () => clearInterval(timer);
   }, [bgImages.length]);
 
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, targetId: string) => {
+    e.preventDefault();
+    const element = document.getElementById(targetId);
+    if (element) {
+      const offset = 0; // Adjust if header becomes fixed
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+      
+      if (isMobileMenuOpen) {
+        setIsMobileMenuOpen(false);
+      }
+    }
+  };
+
+  const [showAllGallery, setShowAllGallery] = useState(false);
+
+  const galleryItems = [
+    { type: 'image', src: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=800&auto=format&fit=crop' },
+    { type: 'video', src: 'https://images.unsplash.com/photo-1551482850-2197144b55ca?q=80&w=800&auto=format&fit=crop' },
+    { type: 'image', src: 'https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=800&auto=format&fit=crop' },
+    { type: 'image', src: 'https://images.unsplash.com/photo-1600091166971-7f9faad6c1e2?q=80&w=800&auto=format&fit=crop' },
+    { type: 'video', src: 'https://images.unsplash.com/photo-1508427953056-b00b8d78ebf5?q=80&w=800&auto=format&fit=crop' },
+    { type: 'image', src: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=800&auto=format&fit=crop' },
+    { type: 'image', src: 'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=800&auto=format&fit=crop' },
+    { type: 'video', src: 'https://images.unsplash.com/photo-1445205170230-053b830c6050?q=80&w=800&auto=format&fit=crop' },
+    { type: 'image', src: 'https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?q=80&w=800&auto=format&fit=crop' },
+  ];
+
+  const visibleGalleryItems = showAllGallery ? galleryItems : galleryItems.slice(0, 6);
+
   return (
     <div className="min-h-screen font-sans selection:bg-blue-200 selection:text-blue-900 overflow-x-hidden">
       {/* Header */}
@@ -51,15 +88,15 @@ export default function App() {
           
           {/* Desktop Nav */}
           <nav className="hidden md:flex gap-8 font-medium text-sm text-slate-300">
-            <a href="#home" className="text-white border-b-2 border-white pb-1">Home</a>
-            <a href="#programm" className="hover:text-white transition-colors">Programm</a>
-            <a href="#galerie" className="hover:text-white transition-colors">Galerie</a>
-            <a href="#tickets" className="hover:text-white transition-colors">Tickets</a>
-            <a href="#partner" className="hover:text-white transition-colors">Partner</a>
+            <a href="#home" onClick={(e) => handleSmoothScroll(e, 'home')} className="text-white border-b-2 border-white pb-1">Home</a>
+            <a href="#programm" onClick={(e) => handleSmoothScroll(e, 'programm')} className="hover:text-white transition-colors">Programm</a>
+            <a href="#galerie" onClick={(e) => handleSmoothScroll(e, 'galerie')} className="hover:text-white transition-colors">Galerie</a>
+            <a href="#tickets" onClick={(e) => handleSmoothScroll(e, 'tickets')} className="hover:text-white transition-colors">Tickets</a>
+            <a href="#partner" onClick={(e) => handleSmoothScroll(e, 'partner')} className="hover:text-white transition-colors">Partner</a>
           </nav>
           
           <div className="hidden md:block">
-            <a href="#tickets" className="bg-white hover:bg-slate-200 text-slate-900 px-6 py-2.5 rounded-full font-semibold transition-all duration-300 shadow-lg inline-block hover:-translate-y-1">
+            <a href="#tickets" onClick={(e) => handleSmoothScroll(e, 'tickets')} className="bg-white hover:bg-slate-200 text-slate-900 px-6 py-2.5 rounded-full font-semibold transition-all duration-300 shadow-lg inline-block hover:-translate-y-1">
               Tickets Kaufen
             </a>
           </div>
@@ -83,12 +120,12 @@ export default function App() {
               exit={{ opacity: 0, y: -20 }}
               className="absolute top-full left-0 w-full bg-slate-900 shadow-xl border-t border-slate-800 md:hidden flex flex-col p-6 gap-6"
             >
-              <a href="#home" onClick={() => setIsMobileMenuOpen(false)} className="text-white font-medium text-lg">Home</a>
-              <a href="#programm" onClick={() => setIsMobileMenuOpen(false)} className="text-slate-300 hover:text-white font-medium text-lg transition-colors">Programm</a>
-              <a href="#galerie" onClick={() => setIsMobileMenuOpen(false)} className="text-slate-300 hover:text-white font-medium text-lg transition-colors">Galerie</a>
-              <a href="#tickets" onClick={() => setIsMobileMenuOpen(false)} className="text-slate-300 hover:text-white font-medium text-lg transition-colors">Tickets</a>
-              <a href="#partner" onClick={() => setIsMobileMenuOpen(false)} className="text-slate-300 hover:text-white font-medium text-lg transition-colors">Partner</a>
-              <a href="#tickets" onClick={() => setIsMobileMenuOpen(false)} className="bg-white text-center hover:bg-slate-200 text-slate-900 px-6 py-3 rounded-full font-semibold transition-all duration-300 shadow-lg inline-block mt-4">
+              <a href="#home" onClick={(e) => handleSmoothScroll(e, 'home')} className="text-white font-medium text-lg">Home</a>
+              <a href="#programm" onClick={(e) => handleSmoothScroll(e, 'programm')} className="text-slate-300 hover:text-white font-medium text-lg transition-colors">Programm</a>
+              <a href="#galerie" onClick={(e) => handleSmoothScroll(e, 'galerie')} className="text-slate-300 hover:text-white font-medium text-lg transition-colors">Galerie</a>
+              <a href="#tickets" onClick={(e) => handleSmoothScroll(e, 'tickets')} className="text-slate-300 hover:text-white font-medium text-lg transition-colors">Tickets</a>
+              <a href="#partner" onClick={(e) => handleSmoothScroll(e, 'partner')} className="text-slate-300 hover:text-white font-medium text-lg transition-colors">Partner</a>
+              <a href="#tickets" onClick={(e) => handleSmoothScroll(e, 'tickets')} className="bg-white text-center hover:bg-slate-200 text-slate-900 px-6 py-3 rounded-full font-semibold transition-all duration-300 shadow-lg inline-block mt-4">
                 Tickets Kaufen
               </a>
             </motion.div>
@@ -112,7 +149,7 @@ export default function App() {
               />
             ))}
             {/* Frosted glass overlay to maintain neumorphic readability */}
-            <div className="absolute inset-0 bg-[#1e293b]/70 backdrop-blur-sm"></div>
+            <div className="absolute inset-0 bg-[#1e293b]/85 backdrop-blur-lg"></div>
             {/* Gradient fade at the bottom to blend into the next section */}
             <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#1e293b] to-transparent"></div>
           </div>
@@ -131,10 +168,10 @@ export default function App() {
               Ein Upcycling-Festival für Kunst und Mode das Textilabfälle in tragbare Kunst verwandelt. Erleben Sie die Schnittstelle von High-Fashion und nachhaltiger Innovation.
             </p>
             <div className="flex flex-col sm:flex-row flex-wrap justify-center lg:justify-start gap-4 pt-4">
-              <a href="#tickets" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full font-bold transition-all duration-300 shadow-xl shadow-blue-900/20 inline-block hover:-translate-y-1 hover:shadow-blue-900/40 w-full sm:w-auto">
+              <a href="#tickets" onClick={(e) => handleSmoothScroll(e, 'tickets')} className="neu-button-accent px-8 py-4 rounded-full font-bold transition-all duration-300 inline-block w-full sm:w-auto text-center">
                 Tickets Sichern
               </a>
-              <a href="#programm" className="neu-button px-8 py-4 rounded-full font-bold text-blue-400 inline-block w-full sm:w-auto">
+              <a href="#programm" onClick={(e) => handleSmoothScroll(e, 'programm')} className="neu-button px-8 py-4 rounded-full font-bold text-blue-400 inline-block w-full sm:w-auto text-center">
                 Zum Programm
               </a>
             </div>
@@ -212,7 +249,7 @@ export default function App() {
                 image: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=800&auto=format&fit=crop'
               }
             ].map((item, i) => (
-              <div key={i} className="neu-flat rounded-[2rem] p-6 flex flex-col">
+              <div key={i} className="neu-convex rounded-[2rem] p-6 flex flex-col hover:scale-[1.02] transition-transform duration-300">
                 <div className="w-full h-48 rounded-xl overflow-hidden mb-6 neu-pressed p-2">
                   <img 
                     src={item.image} 
@@ -241,7 +278,7 @@ export default function App() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
             {/* Day 1 */}
-            <div className="neu-flat rounded-[2rem] md:rounded-[3rem] p-6 md:p-8 lg:p-10">
+            <div className="neu-convex rounded-[2rem] md:rounded-[3rem] p-6 md:p-8 lg:p-10">
               <div className="flex justify-between items-start mb-6 md:mb-8">
                 <div>
                   <h3 className="text-3xl md:text-4xl font-black mb-1">2. MAI</h3>
@@ -262,7 +299,7 @@ export default function App() {
                   { time: '20:00', title: 'FASHION-RUNWAY-SHOW', desc: 'Upcycling-Mode auf dem Laufsteg' },
                   { time: '22:00', title: 'AFTERPARTY & DJ-SET', desc: 'Musik, Tanz & Live-Painting bis 02:00 Uhr nachts' },
                 ].map((event, i) => (
-                  <div key={i} className="neu-flat rounded-2xl p-4 md:p-5 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
+                  <div key={i} className="neu-flat rounded-2xl p-4 md:p-5 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 hover:translate-x-1 transition-transform duration-300">
                     <div className="text-blue-400 font-black text-lg md:text-xl w-16 shrink-0">{event.time}</div>
                     <div>
                       <h4 className="font-bold text-slate-200 text-sm md:text-base">{event.title}</h4>
@@ -274,7 +311,7 @@ export default function App() {
             </div>
 
             {/* Day 2 */}
-            <div className="neu-flat rounded-[2rem] md:rounded-[3rem] p-6 md:p-8 lg:p-10">
+            <div className="neu-convex rounded-[2rem] md:rounded-[3rem] p-6 md:p-8 lg:p-10">
               <div className="flex justify-between items-start mb-6 md:mb-8">
                 <div>
                   <h3 className="text-3xl md:text-4xl font-black mb-1">3. MAI</h3>
@@ -295,7 +332,7 @@ export default function App() {
                   { time: '17:30', title: 'ARTIST TALK & GALERIERUNDGANG', desc: 'Einblicke & Diskussionen' },
                   { time: '18:30', title: 'ABSCHLUSSMOMENT', desc: 'Gemeinsamer Ausklang' },
                 ].map((event, i) => (
-                  <div key={i} className="neu-flat rounded-2xl p-4 md:p-5 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
+                  <div key={i} className="neu-flat rounded-2xl p-4 md:p-5 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 hover:translate-x-1 transition-transform duration-300">
                     <div className="text-blue-400 font-black text-lg md:text-xl w-16 shrink-0">{event.time}</div>
                     <div>
                       <h4 className="font-bold text-slate-200 text-sm md:text-base">{event.title}</h4>
@@ -317,15 +354,15 @@ export default function App() {
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {[
-              { type: 'image', src: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=800&auto=format&fit=crop' },
-              { type: 'video', src: 'https://images.unsplash.com/photo-1551482850-2197144b55ca?q=80&w=800&auto=format&fit=crop' },
-              { type: 'image', src: 'https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=800&auto=format&fit=crop' },
-              { type: 'image', src: 'https://images.unsplash.com/photo-1600091166971-7f9faad6c1e2?q=80&w=800&auto=format&fit=crop' },
-              { type: 'video', src: 'https://images.unsplash.com/photo-1508427953056-b00b8d78ebf5?q=80&w=800&auto=format&fit=crop' },
-              { type: 'image', src: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=800&auto=format&fit=crop' },
-            ].map((media, i) => (
-              <div key={i} className="neu-pressed rounded-[2rem] p-3 group cursor-pointer">
+            {visibleGalleryItems.map((media, i) => (
+              <motion.div 
+                key={i} 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "100px" }}
+                transition={{ duration: 0.5, delay: (i % 3) * 0.1 }}
+                className="neu-pressed rounded-[2rem] p-3 group cursor-pointer"
+              >
                 <div className="relative w-full aspect-square rounded-xl overflow-hidden">
                   <img 
                     src={media.src} 
@@ -342,14 +379,19 @@ export default function App() {
                     </div>
                   )}
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
-          <div className="mt-16 text-center">
-            <button className="neu-button px-10 py-4 rounded-full font-bold text-blue-400 inline-block">
-              Mehr ansehen
-            </button>
-          </div>
+          {!showAllGallery && (
+            <div className="mt-16 text-center">
+              <button 
+                onClick={() => setShowAllGallery(true)}
+                className="neu-button px-10 py-4 rounded-full font-bold text-blue-400 inline-block"
+              >
+                Mehr ansehen
+              </button>
+            </div>
+          )}
         </section>
 
         {/* Partners Section */}
@@ -379,8 +421,8 @@ export default function App() {
         </section>
 
         {/* Tickets Section */}
-        <section id="tickets" className="w-full max-w-7xl mx-auto px-4 md:px-6 py-12 md:py-16">
-          <div className="rounded-[2rem] md:rounded-[3rem] p-8 md:p-12 lg:p-20 flex flex-col lg:flex-row items-center justify-between gap-12 md:gap-16 shadow-2xl shadow-blue-900/20 relative overflow-hidden">
+        <section id="tickets" className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-16">
+          <div className="rounded-[2rem] md:rounded-[3rem] p-6 sm:p-8 md:p-12 lg:p-20 flex flex-col lg:flex-row items-center justify-between gap-10 md:gap-16 shadow-2xl shadow-blue-900/20 relative overflow-hidden">
             {/* Background Image with Gradient Overlay */}
             <div className="absolute inset-0 z-0 bg-blue-950">
               <img 
@@ -393,30 +435,30 @@ export default function App() {
               <div className="absolute inset-0 bg-gradient-to-br from-blue-950 via-blue-900/40 to-blue-950/80"></div>
             </div>
 
-            <div className="flex-1 text-white z-10 text-center lg:text-left">
-              <h2 className="text-5xl md:text-6xl lg:text-7xl font-black mb-4 md:mb-6 leading-none tracking-tight">TICKET<br className="hidden md:block"/>KAUFEN</h2>
-              <p className="text-blue-200 text-base md:text-lg mb-8 md:mb-12 max-w-md mx-auto lg:mx-0">
+            <div className="flex-1 text-white z-10 text-center lg:text-left w-full">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-4 md:mb-6 leading-none tracking-tight">TICKET<br className="hidden sm:block"/>KAUFEN</h2>
+              <p className="text-blue-200 text-sm sm:text-base md:text-lg mb-8 md:mb-12 max-w-md mx-auto lg:mx-0">
                 Sichern Sie sich jetzt Ihren Zugang zum Upcycling-Event des Jahres. Limitierte Plätze verfügbar.
               </p>
 
               <div className="space-y-4 md:space-y-6 mb-8 md:mb-12 max-w-md mx-auto lg:mx-0">
                 <div className="flex justify-between items-end border-b border-blue-500/50 pb-3 md:pb-4">
-                  <span className="text-base md:text-lg">Vorverkauf (VVK)</span>
-                  <span className="text-2xl md:text-3xl font-black">20.00 €</span>
+                  <span className="text-sm sm:text-base md:text-lg">Vorverkauf (VVK)</span>
+                  <span className="text-xl sm:text-2xl md:text-3xl font-black">20.00 €</span>
                 </div>
                 <div className="flex justify-between items-end border-b border-blue-500/50 pb-3 md:pb-4">
-                  <span className="text-base md:text-lg">Abendkasse (AK)</span>
-                  <span className="text-2xl md:text-3xl font-black">25.00 €</span>
+                  <span className="text-sm sm:text-base md:text-lg">Abendkasse (AK)</span>
+                  <span className="text-xl sm:text-2xl md:text-3xl font-black">25.00 €</span>
                 </div>
               </div>
 
-              <button className="bg-white text-blue-700 hover:bg-slate-200 px-8 md:px-10 py-3 md:py-4 rounded-full font-bold text-base md:text-lg transition-all duration-300 shadow-xl hover:-translate-y-1 hover:shadow-2xl w-full sm:w-auto">
+              <button className="neu-button-accent px-8 md:px-10 py-3 md:py-4 rounded-full font-bold text-base md:text-lg w-full sm:w-auto">
                 Jetzt Tickets Sichern
               </button>
             </div>
 
             <div className="w-full lg:w-auto z-10">
-              <div className="bg-[#1e293b] rounded-[2rem] md:rounded-[2.5rem] p-8 md:p-10 lg:p-12 flex flex-col items-center text-center shadow-2xl w-full max-w-sm mx-auto">
+              <div className="neu-convex rounded-[2rem] md:rounded-[2.5rem] p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col items-center text-center w-full max-w-sm mx-auto">
                 <div className="w-24 h-24 md:w-32 md:h-32 neu-pressed rounded-2xl flex items-center justify-center mb-6 md:mb-8">
                   <QrCode size={40} className="text-blue-400 md:w-12 md:h-12" />
                 </div>
