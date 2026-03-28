@@ -7,41 +7,88 @@ html {
 @theme {
   --color-bg-neu: #1e293b;
   --color-shadow-light: #29384d;
-  --color-shadow-dark: #131a25;
+  --color-shadow-dark: #0f172a;
+  --color-accent-blue: #3b82f6;
 }
 
 body {
   background-color: var(--color-bg-neu);
   color: #f8fafc;
+  -webkit-font-smoothing: antialiased;
 }
 
+/* Neumorphic Flat - Standard elevated surface */
 .neu-flat {
-  background-color: var(--color-bg-neu);
-  box-shadow: 10px 10px 20px var(--color-shadow-dark),
-             -10px -10px 20px var(--color-shadow-light);
+  background: var(--color-bg-neu);
+  box-shadow: 8px 8px 16px var(--color-shadow-dark),
+             -8px -8px 16px var(--color-shadow-light);
+  border: 1px solid rgba(255, 255, 255, 0.03);
 }
 
+/* Neumorphic Convex - Slightly rounded elevated surface */
+.neu-convex {
+  background: linear-gradient(145deg, #202c3f, #1b2535);
+  box-shadow: 8px 8px 16px var(--color-shadow-dark),
+             -8px -8px 16px var(--color-shadow-light);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+/* Neumorphic Concave - Slightly rounded sunken surface */
+.neu-concave {
+  background: linear-gradient(145deg, #1b2535, #202c3f);
+  box-shadow: 8px 8px 16px var(--color-shadow-dark),
+             -8px -8px 16px var(--color-shadow-light);
+}
+
+/* Neumorphic Pressed - Sunken surface */
 .neu-pressed {
-  background-color: var(--color-bg-neu);
+  background: var(--color-bg-neu);
   box-shadow: inset 6px 6px 12px var(--color-shadow-dark),
               inset -6px -6px 12px var(--color-shadow-light);
+  border: 1px solid rgba(255, 255, 255, 0.01);
 }
 
+/* Neumorphic Button - Interactive elevated surface */
 .neu-button {
-  background-color: var(--color-bg-neu);
+  background: var(--color-bg-neu);
   box-shadow: 6px 6px 12px var(--color-shadow-dark),
              -6px -6px 12px var(--color-shadow-light);
-  transition: all 0.2s ease-in-out;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .neu-button:hover {
-  box-shadow: 2px 2px 5px var(--color-shadow-dark),
-             -2px -2px 5px var(--color-shadow-light);
-  transform: scale(0.98);
+  box-shadow: 3px 3px 6px var(--color-shadow-dark),
+             -3px -3px 6px var(--color-shadow-light);
+  transform: translateY(-1px);
+  background: linear-gradient(145deg, #202c3f, #1b2535);
 }
 
 .neu-button:active {
   box-shadow: inset 4px 4px 8px var(--color-shadow-dark),
               inset -4px -4px 8px var(--color-shadow-light);
-  transform: scale(0.95);
+  transform: translateY(0) scale(0.98);
+  background: var(--color-bg-neu);
+}
+
+/* Accent Neumorphic Button */
+.neu-button-accent {
+  background: linear-gradient(145deg, #3b82f6, #2563eb);
+  box-shadow: 6px 6px 12px rgba(15, 23, 42, 0.4),
+             -4px -4px 8px rgba(59, 130, 246, 0.2);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.neu-button-accent:hover {
+  box-shadow: 3px 3px 6px rgba(15, 23, 42, 0.4),
+             -2px -2px 4px rgba(59, 130, 246, 0.2);
+  transform: translateY(-1px);
+  filter: brightness(1.1);
+}
+
+.neu-button-accent:active {
+  box-shadow: inset 4px 4px 8px rgba(15, 23, 42, 0.4),
+              inset -2px -2px 4px rgba(59, 130, 246, 0.2);
+  transform: translateY(0) scale(0.98);
 }
