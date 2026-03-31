@@ -571,7 +571,7 @@ export default function App() {
               <a href="https://www.instagram.com/reels/DWQ9dh7iGzd/" target="_blank" rel="noopener noreferrer" className="neu-button p-2 md:p-3 rounded-full cursor-pointer hover:text-blue-300 transition-all" aria-label="Twitter">
                 <Twitter size={18} className="md:w-5 md:h-5" />
               </a>
-              <a href="https://wa.me/+49123456789" target="_blank" rel="noopener noreferrer" className="neu-button p-2 md:p-3 rounded-full cursor-pointer hover:text-[#1ebe57] transition-all" aria-label="WhatsApp">
+              <a href="https://wa.me/+31629532653" target="_blank" rel="noopener noreferrer" className="neu-button p-2 md:p-3 rounded-full cursor-pointer hover:text-[#1ebe57] transition-all" aria-label="WhatsApp">
                 <MessageCircle size={18} className="md:w-5 md:h-5" />
               </a>
             </div>
