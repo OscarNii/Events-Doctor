@@ -1,9 +1,9 @@
-# Task: Add Social Media Links
+# Task: Fix Vercel Preloader Broken Link
 
 ## Plan Steps:
-- [x] Create TODO.md
-- [x] Add social media links to footer in src/App.tsx
-- [x] Test the changes (dev server running on http://localhost:3001, changes verified)
+- [x] Investigate preloader asset reference in src/App.tsx
+- [x] Replace hardcoded preloader path with Vite asset import in src/App.tsx
+- [x] Run production build verification
 - [x] Complete task
 
-Current status: Plan approved, starting implementation.
+Current status: Completed. Build output confirms preloader image is bundled into dist/assets.

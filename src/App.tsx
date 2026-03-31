@@ -6,6 +6,7 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowDownRight, ArrowRight, Facebook, Instagram, MessageCircle, QrCode, Twitter, X, Menu } from 'lucide-react'; // Assuming lucide-react is the correct import for these icons
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'; // Corrected import for AnimatePresence
+import preloaderImg from './Preloader.png';
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -101,7 +102,7 @@ export default function App() {
             }}
           >
             <motion.img 
-              src="src/Preloader.png" 
+              src={preloaderImg} 
               alt="Renewable Elegance Preloader"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ 
