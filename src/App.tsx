@@ -331,7 +331,7 @@ export default function App() {
                   <h3 className="text-3xl md:text-4xl font-black mb-1">2. MAI</h3>
                   <p className="text-blue-400 font-bold uppercase tracking-widest text-xs md:text-sm">Samstag, 2026</p>
                 </div>
-                <ArrowDownRight className="text-blue-300" size={32} md:size={40} strokeWidth={1.5} />
+                <ArrowDownRight className="text-blue-300 w-8 h-8 md:w-10 md:h-10" strokeWidth={1.5} />
               </div>
 
               <div className="bg-blue-900/30 text-slate-200 font-bold p-4 md:p-5 rounded-2xl mb-6 md:mb-8 border border-blue-800/50 text-sm md:text-base">
@@ -364,7 +364,7 @@ export default function App() {
                   <h3 className="text-3xl md:text-4xl font-black mb-1">3. MAI</h3>
                   <p className="text-blue-400 font-bold uppercase tracking-widest text-xs md:text-sm">Sonntag, 2026</p>
                 </div>
-                <ArrowDownRight className="text-blue-300" size={32} md:size={40} strokeWidth={1.5} />
+                <ArrowDownRight className="text-blue-300 w-8 h-8 md:w-10 md:h-10" strokeWidth={1.5} />
               </div>
 
               <div className="bg-blue-900/30 text-slate-200 font-bold p-4 md:p-5 rounded-2xl mb-6 md:mb-8 border border-blue-800/50 text-sm md:text-base">
@@ -400,16 +400,6 @@ export default function App() {
               Ein Blick zurück auf vergangene Momente voller Kreativität, Mode und nachhaltiger Kunst.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              { type: 'image', src: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=800&auto=format&fit=crop' },
-              { type: 'image', src: 'https://images.unsplash.com/photo-1543728069-a3f97c5a2f32?q=80&w=2969&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
-              { type: 'image', src: 'https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=800&auto=format&fit=crop' },
-              { type: 'image', src: 'https://images.unsplash.com/photo-1600091166971-7f9faad6c1e2?q=80&w=800&auto=format&fit=crop' },
-              { type: 'video', src: 'https://images.unsplash.com/photo-1508427953056-b00b8d78ebf5?q=80&w=800&auto=format&fit=crop' },
-              { type: 'image', src: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=800&auto=format&fit=crop' },
-            ].map((media, i) => (
-              <div key={i} className="neu-pressed rounded-[2rem] p-3 group cursor-pointer">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {visibleGalleryItems.map((media, i) => (
               <motion.div 
@@ -521,10 +511,10 @@ export default function App() {
                 </div>
                 <p className="font-bold text-slate-200 text-base md:text-lg mb-6 md:mb-8">Was geht ab? Hier erfährst du's!</p>
                 <div className="flex gap-4 md:gap-6 text-blue-400">
-                  <div className="neu-button p-2 md:p-3 rounded-full cursor-pointer hover:text-blue-300"><Instagram size={20} className="md:w-6 md:h-6" /></div>
-                  <div className="neu-button p-2 md:p-3 rounded-full cursor-pointer hover:text-blue-300"><Facebook size={20} className="md:w-6 md:h-6" /></div>
-                  <div className="neu-button p-2 md:p-3 rounded-full cursor-pointer hover:text-blue-300"><Twitter size={20} className="md:w-6 md:h-6" /></div>
-                  <div className="neu-button p-2 md:p-3 rounded-full cursor-pointer hover:text-blue-300"><MessageCircle size={20} className="md:w-6 md:h-6" /></div>
+                  {/* <div className="neu-button p-2 md:p-3 rounded-full cursor-pointer hover:text-blue-300"><Instagram size={20} className="md:w-6 md:h-6" /></div> */}
+                  {/* <div className="neu-button p-2 md:p-3 rounded-full cursor-pointer hover:text-blue-300"><Facebook size={20} className="md:w-6 md:h-6" /></div> */}
+                  {/* <div className="neu-button p-2 md:p-3 rounded-full cursor-pointer hover:text-blue-300"><Twitter size={20} className="md:w-6 md:h-6" /></div> */}
+                  {/* <div className="neu-button p-2 md:p-3 rounded-full cursor-pointer hover:text-blue-300"><MessageCircle size={20} className="md:w-6 md:h-6" /></div> */}
                 </div>
               </div>
             </div>
