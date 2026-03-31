@@ -101,7 +101,7 @@ export default function App() {
             }}
           >
             <motion.img 
-              src="src/Screenshot_2026-03-28_at_20.00.23-removebg-preview.png" 
+              src="src/Preloader.png" 
               alt="Renewable Elegance Preloader"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ 
